@@ -9,8 +9,13 @@ const nodeSlicer = require('node-slic3r');
 const express = require('express')
 const app = express()
 const fs = require('fs');
+const compression = require('compression')
+const cors = require('cors')
+// compress responses
+app.use(compression())
 // default options
 app.use(fileUpload());
+app.use(cors());
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
