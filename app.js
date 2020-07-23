@@ -4,7 +4,8 @@ const fileUpload = require('express-fileupload');
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const nodeSlicer = require('node-slic3r');
+const nodeSlicer = require('./slicers/slic3r/slic3r');
+const converter = require('./utils/converter');
 
 const express = require('express')
 const app = express()
@@ -32,26 +33,33 @@ app.post('/upload', function(req, res) {
       if (err)
         return res.status(500).send(err);
 
+      var name = sampleFile.name.substring(0, sampleFile.name.lastIndexOf('.'));
       var options = {
-        inputFile: '/tmp/' + sampleFile.name
-        // For more options check out the configSchema.yaml file
+        inputFile: '/tmp/' + sampleFile.name,
+        // For more options check out the configSchema.yaml file,
+        configFile: './default/slic3r.ini',
+        outputFile: '/tmp/' + name + '.gcode'
       };
 
-      nodeSlicer.render(options, function (error, bufferData) {
+      nodeSlicer.render(options, function (error) {
         if (error)
             console.error(error.message)
         else {
           console.log(sampleFile.name);
           let name = sampleFile.name.substring(0, sampleFile.name.lastIndexOf('.'));
-          console.log(name);
-          fs.writeFile('/tmp/' + name + '.gcode', bufferData, function (err) {
-            if (err) throw err;
-            res.download('/tmp/' + name + '.gcode', name + '.gcode'); 
-          }); 
+          res.download('/tmp/' + name + '.gcode', name + '.gcode'); 
         }
       })
     });
   }
+});
+
+app.get('/config', function(req, res) {
+  console.log(converter.fromIniToJson('./default/slic3r.ini',
+  (result) => {
+    console.log(result);
+    res.status(200).send(result);
+  }));
 });
 
 app.listen(port, hostname, () => {
