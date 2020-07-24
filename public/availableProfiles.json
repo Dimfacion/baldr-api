@@ -1,0 +1,19 @@
+{
+    "profiles": [
+        {
+            "printers" : [
+                {
+                    "brand": "Creality",
+                    "model": "Ender 3"
+                }
+            ],
+            "type": "slic3r",
+            "tags": ["CHEP"],
+            "author": "CHEP",
+            "popularity": 1,
+            "usage": 1,
+            "name": "Slic3r profile by CHEP",
+            "id": "u5g0a4wgy-db6eyhcdy-q6ehdj96u-aonoloqya"
+        }
+    ]
+}

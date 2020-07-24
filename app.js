@@ -9,7 +9,7 @@ const converter = require('./utils/converter');
 
 const express = require('express')
 const app = express()
-const fs = require('fs');
+const fs = require('fs-extra');
 const compression = require('compression')
 const cors = require('cors')
 // compress responses
@@ -60,6 +60,13 @@ app.get('/config', function(req, res) {
     console.log(result);
     res.status(200).send(result);
   }));
+});
+
+app.get('/public/profiles', function(req, res) {
+  fs.readFile('./public/availableProfiles.json', (err, data) =>
+  {
+    res.status(200).send(data);
+  });
 });
 
 app.listen(port, hostname, () => {
