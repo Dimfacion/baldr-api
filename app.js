@@ -5,6 +5,7 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const nodeSlicer = require('./slicers/slic3r/slic3r');
+const prusaSlicer = require('./slicers/prusaslicer/prusaslicer');
 const converter = require('./utils/converter');
 
 const express = require('express')
@@ -18,14 +19,14 @@ app.use(compression())
 app.use(fileUpload());
 app.use(cors());
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.send('Hello World!')
 })
 
-app.post('/upload', function(req, res) {
+app.post('/upload/:slicerType', function(req, res) {
   console.log(req.files);
 
-  for(var i = 0 ; i < Object.keys(req.files).length; i++) {
+  for (var i = 0; i < Object.keys(req.files).length; i++) {
     var nameObject = Object.keys(req.files)[i];
     var sampleFile = req.files[nameObject];
     // Use the mv() method to place the file somewhere on your server
@@ -37,34 +38,44 @@ app.post('/upload', function(req, res) {
       var options = {
         inputFile: '/tmp/' + sampleFile.name,
         // For more options check out the configSchema.yaml file,
-        configFile: './default/slic3r.ini',
+        // configFile: './default/slic3r.ini',
         outputFile: '/tmp/' + name + '.gcode'
       };
 
-      nodeSlicer.render(options, function (error) {
+      var callback = function(error) {
         if (error)
-            console.error(error.message)
+          console.error(error.message)
         else {
           console.log(sampleFile.name);
           let name = sampleFile.name.substring(0, sampleFile.name.lastIndexOf('.'));
-          res.download('/tmp/' + name + '.gcode', name + '.gcode'); 
+          res.download('/tmp/' + name + '.gcode', name + '.gcode');
         }
-      })
+      };
+
+      var slicerToUse;
+
+      if (req.params.slicerType === 'slic3r') {
+        slicerToUse = nodeSlicer;
+      } else if (req.params.slicerType === 'prusaslicer') {
+        slicerToUse = prusaSlicer;
+      } else {
+        return res.status(500).send('Wrong parameter');
+      }
+      slicerToUse.render(options, callback);
     });
   }
 });
 
 app.get('/config', function(req, res) {
   console.log(converter.fromIniToJson('./default/slic3r.ini',
-  (result) => {
-    console.log(result);
-    res.status(200).send(result);
-  }));
+    (result) => {
+      console.log(result);
+      res.status(200).send(result);
+    }));
 });
 
 app.get('/public/profiles', function(req, res) {
-  fs.readFile('./public/availableProfiles.json', (err, data) =>
-  {
+  fs.readFile('./public/availableProfiles.json', (err, data) => {
     res.status(200).send(data);
   });
 });
