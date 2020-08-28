@@ -7,12 +7,14 @@ const port = 3000;
 const nodeSlicer = require('./slicers/slic3r/slic3r');
 const prusaSlicer = require('./slicers/prusaslicer/prusaslicer');
 const converter = require('./utils/converter');
+const database = require('./utils/database');
 
 const express = require('express')
 const app = express()
 const fs = require('fs-extra');
 const compression = require('compression')
 const cors = require('cors')
+
 // compress responses
 app.use(compression())
 // default options
@@ -81,5 +83,6 @@ app.get('/public/profiles', function(req, res) {
 });
 
 app.listen(port, hostname, () => {
+  database.init(undefined, () => {})
   console.log(`Server running at http://${hostname}:${port}/`);
 });
