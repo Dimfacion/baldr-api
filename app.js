@@ -23,12 +23,10 @@ app.use(fileUpload());
 app.use(cors());
 
 app.get("/", function (req, res) {
-  res.send("Hello World!");
+  res.send("Baldr is awake and shining !");
 });
 
 app.post("/upload/:slicerType", function (req, res) {
-  console.log(req.files);
-
   for (var i = 0; i < Object.keys(req.files).length; i++) {
     var nameObject = Object.keys(req.files)[i];
     var sampleFile = req.files[nameObject];
@@ -37,7 +35,6 @@ app.post("/upload/:slicerType", function (req, res) {
     sampleFile.mv("/tmp/" + sampleFile.id + ".stl", function (err) {
       if (err) return res.status(500).send(err);
 
-      var name = sampleFile.name.substring(0, sampleFile.name.lastIndexOf("."));
       var options = {
         inputFile: "/tmp/" + sampleFile.id + ".stl",
         // For more options check out the configSchema.yaml file,
@@ -48,7 +45,6 @@ app.post("/upload/:slicerType", function (req, res) {
       var callback = function (error) {
         if (error) console.error(error.message);
         else {
-          console.log(sampleFile.name);
           let name = sampleFile.name.substring(0, sampleFile.name.lastIndexOf("."));
           res.download("/tmp/" + sampleFile.id + ".gcode", name + ".gcode", () => {
             fs.remove("/tmp/" + sampleFile.id + ".gcode");
