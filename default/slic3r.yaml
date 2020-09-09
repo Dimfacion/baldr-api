@@ -9,294 +9,666 @@ properties:
     description: Print the Slic3er header line with timestamp
     default: true
 
-# Printer Options
+  # Printer Options
   printer_technology:
-   description:  Technology of the printer
-   type: string
-   default: FFF
+    description: Technology of the printer
+    type: string
+    default: FFF
 
   bed_shape:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: 0x0,200x0,200x200,0x200
+    description: Diameter of nozzle in mm
+    type: string
+    default: 0x0,200x0,200x200,0x200
 
   before_layer_gcode:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: ;BEFORE_LAYER_CHANGE\n;[layer_z]\n\n
+    description: Diameter of nozzle in mm
+    type: string
+    default: ;BEFORE_LAYER_CHANGE\n;[layer_z]\n\n
 
   between_objects_gcode:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: 
+    description: Diameter of nozzle in mm
+    type: string
+    default:
 
   deretract_speed:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
 
   extruder_colour:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: #FFFF00
+    description: Diameter of nozzle in mm
+    type: string
+    default: #FFFF00
 
   extruder_offset:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: 0x0
+    description: Diameter of nozzle in mm
+    type: string
+    default: 0x0
 
   gcode_flavor:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: marlin
+    description: Diameter of nozzle in mm
+    type: string
+    default: marlin
 
   silent_mode:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
 
   remaining_times:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
 
   machine_max_acceleration_e:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 10000
+    description: Diameter of nozzle in mm
+    type: number
+    default: 10000
 
   machine_max_acceleration_extruding:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 2000
+    description: Diameter of nozzle in mm
+    type: number
+    default: 2000
 
   machine_max_acceleration_retracting:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 1500
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1500
 
   machine_max_acceleration_x:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 3000
+    description: Diameter of nozzle in mm
+    type: number
+    default: 3000
 
   machine_max_acceleration_y:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 3000
+    description: Diameter of nozzle in mm
+    type: number
+    default: 3000
 
   machine_max_acceleration_z:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 500
+    description: Diameter of nozzle in mm
+    type: number
+    default: 500
 
   machine_max_feedrate_e:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 120
+    description: Diameter of nozzle in mm
+    type: number
+    default: 120
 
   machine_max_feedrate_x:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 500
+    description: Diameter of nozzle in mm
+    type: number
+    default: 500
 
   machine_max_feedrate_y:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 500
+    description: Diameter of nozzle in mm
+    type: number
+    default: 500
 
   machine_max_feedrate_z:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 12
+    description: Diameter of nozzle in mm
+    type: number
+    default: 12
 
   machine_max_jerk_e:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 2.5
+    description: Diameter of nozzle in mm
+    type: number
+    default: 2.5
 
   machine_max_jerk_x:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 20
+    description: Diameter of nozzle in mm
+    type: number
+    default: 20
 
   machine_max_jerk_y:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 20
+    description: Diameter of nozzle in mm
+    type: number
+    default: 20
 
   machine_max_jerk_z:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.4
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.4
 
   machine_min_extruding_rate:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
 
   machine_min_travel_rate:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
 
   layer_gcode:
-   description:  Diameter of nozzle in mm
-   type: string
-   default: ;AFTER_LAYER_CHANGE\n;[layer_z]
+    description: Diameter of nozzle in mm
+    type: string
+    default: ;AFTER_LAYER_CHANGE\n;[layer_z]
 
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
+  max_layer_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.5
 
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
+  min_layer_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.07
+  max_print_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 200
+  nozzle_diameter:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.4
+  octoprint_apikey:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  octoprint_host:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  printer_notes:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  printer_settings_id:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  retract_before_travel:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 1
+  retract_before_wipe:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0%
+  retract_layer_change:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  retract_length:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  retract_length_toolchange:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  retract_lift:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  retract_lift_above:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  retract_lift_below:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  retract_restart_extra:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  retract_restart_extra_toolchange:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  retract_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 35
+  serial_port:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  serial_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 250000
+  single_extruder_multi_material:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  start_gcode:
+    description: Diameter of nozzle in mm
+    type: number
+    default: G90 ; use absolute coordinates\nM83 ; extruder relative mode\nM104 S[first_layer_temperature] ; set extruder temp\nM140 S[first_layer_bed_temperature] ; set bed temp\nM190 S[first_layer_bed_temperature] ; wait for bed temp\nM109 S[first_layer_temperature] ; wait for extruder temp\nG28 ; home all\nG92 E0.0\nG1 Z0.15 F240\nG1 X60.0 E9.0  F800.0 ; intro line\nG1 X100.0 E12.5 F800 ; intro line\nG92 E0.0
+  end_gcode:
+    description: Diameter of nozzle in mm
+    type: number
+    default: M104 S0 ; turn off temperature\nM140 S0 ; turn off heatbed\nM107 ; turn off fan\n{if layer_z < max_print_height}G1 Z{z_offset+min(layer_z+30, max_print_height)}{endif} ; Move print head up\nG1 X0 F3000 ; home X axis\nM84 ; disable motors
+  toolchange_gcode:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  use_firmware_retraction:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  use_relative_e_distances:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 1
+  use_volumetric_e:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  variable_layer_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  wipe:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  z_offset:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  printer_model:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  default_print_profile:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  default_filament_profile:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
 
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
-  nozzleDiameter:
-   description:  Diameter of nozzle in mm
-   type: number
-   default: 0.5
-
+  #Print options
+  avoid_crossing_perimeters:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  bridge_acceleration:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1000
+  bridge_angle:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  bridge_flow_ratio:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.8
+  bridge_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 20
+  brim_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  clip_multipart_objects:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 1
+  compatible_printers:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  complete_objects:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  default_acceleration:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1000
+  dont_support_bridges:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 1
+  elefant_foot_compensation:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.2
+  ensure_vertical_shell_thickness:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  external_fill_pattern:
+    description: Diameter of nozzle in mm
+    type: string
+    default: rectilinear
+  external_perimeters_first:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  external_perimeter_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.45
+  extra_perimeters:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  extruder_clearance_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 20
+  extruder_clearance_radius:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 45
+  extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.45
+  fill_angle:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 45
+  fill_density:
+    description: Diameter of nozzle in mm
+    type: string
+    default: 20%
+  fill_pattern:
+    description: Diameter of nozzle in mm
+    type: string
+    default: cubic
+  first_layer_acceleration:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1000
+  first_layer_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.42
+  first_layer_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.2
+  first_layer_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 20
+  gap_fill_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 40
+  gcode_comments:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  infill_every_layers:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  infill_extruder:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  infill_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.45
+  infill_first:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  infill_only_where_needed:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  infill_overlap:
+    description: Diameter of nozzle in mm
+    type: string
+    default: 25%
+  interface_shells:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  max_print_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 100
+  max_volumetric_extrusion_rate_slope_negative:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  max_volumetric_extrusion_rate_slope_positive:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  max_volumetric_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  min_skirt_length:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 4
+  notes:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  overhangs:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  only_retract_when_crossing_perimeters:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  ooze_prevention:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  output_filename_format:
+    description: Diameter of nozzle in mm
+    type: string
+    default: "{input_filename_base}_{layer_height}mm_{filament_type[0]}_{printer_model}_{print_time}.gcode"
+  perimeters:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 2
+  perimeter_extruder:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  perimeter_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.45
+  post_process:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  print_settings_id:
+    description: Diameter of nozzle in mm
+    type: string
+    default:
+  raft_layers:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  resolution:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  seam_position:
+    description: Diameter of nozzle in mm
+    type: string
+    default: nearest
+  single_extruder_multi_material_priming:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  skirts:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  skirt_distance:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 2
+  skirt_height:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 3
+  small_perimeter_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 25
+  solid_infill_below_area:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  solid_infill_every_layers:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  solid_infill_extruder:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 1
+  solid_infill_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.45
+  spiral_vase:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  standby_temperature_delta:
+    description: Diameter of nozzle in mm
+    type: number
+    default: -5
+  support_material:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  support_material_extruder:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  support_material_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0.35
+  support_material_interface_extruder:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  support_material_angle:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  support_material_buildplate_only:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  support_material_enforce_layers:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  support_material_contact_distance:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.1
+  support_material_interface_contact_loops:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  support_material_interface_layers:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 2
+  support_material_interface_spacing:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.2
+  support_material_interface_speed:
+    description: Diameter of nozzle in mm
+    type: string
+    default: 100%
+  support_material_pattern:
+    description: Diameter of nozzle in mm
+    type: string
+    default: rectilinear
+  support_material_spacing:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 2
+  support_material_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 50
+  support_material_synchronize_layers:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  support_material_threshold:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 55
+  support_material_with_sheath:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  support_material_xy_spacing:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 50%
+  thin_walls:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  top_infill_extrusion_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.45
+  top_solid_infill_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 40
+  travel_speed:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 180
+  wipe_tower:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 1
+  wipe_tower_bridging:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 10
+  wipe_tower_rotation_angle:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0
+  wipe_tower_width:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 60
+  wipe_tower_x:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 170
+  wipe_tower_y:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 140
+  xy_size_compensation:
+    description: Diameter of nozzle in mm
+    type: boolean
+    default: 0
+  top_solid_min_thickness:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.6
+  bottom_solid_min_thickness:
+    description: Diameter of nozzle in mm
+    type: number
+    default: 0.5

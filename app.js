@@ -14,7 +14,13 @@ const app = express();
 const fs = require("fs-extra");
 const compression = require("compression");
 const cors = require("cors");
-const { v4: uuidv4 } = require("uuid");
+const {
+  v4: uuidv4
+} = require("uuid");
+const YAML = require("yamljs");
+
+// Load yaml file using YAML.load
+const slic3rDefault = YAML.load("default/slic3r.yaml");
 
 // compress responses
 app.use(compression());
@@ -22,17 +28,17 @@ app.use(compression());
 app.use(fileUpload());
 app.use(cors());
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
   res.send("Baldr is awake and shining !");
 });
 
-app.post("/upload/:slicerType", function (req, res) {
+app.post("/upload/:slicerType", function(req, res) {
   for (var i = 0; i < Object.keys(req.files).length; i++) {
     var nameObject = Object.keys(req.files)[i];
     var sampleFile = req.files[nameObject];
     sampleFile.id = uuidv4();
     // Use the mv() method to place the file somewhere on your server
-    sampleFile.mv("/tmp/" + sampleFile.id + ".stl", function (err) {
+    sampleFile.mv("/tmp/" + sampleFile.id + ".stl", function(err) {
       if (err) return res.status(500).send(err);
 
       var options = {
@@ -42,7 +48,7 @@ app.post("/upload/:slicerType", function (req, res) {
         outputFile: "/tmp/" + sampleFile.id + ".gcode",
       };
 
-      var callback = function (error) {
+      var callback = function(error) {
         if (error) console.error(error.message);
         else {
           let name = sampleFile.name.substring(0, sampleFile.name.lastIndexOf("."));
@@ -67,16 +73,11 @@ app.post("/upload/:slicerType", function (req, res) {
   }
 });
 
-app.get("/config", function (req, res) {
-  console.log(
-    converter.fromIniToJson("./default/slic3r.ini", (result) => {
-      console.log(result);
-      res.status(200).send(result);
-    })
-  );
+app.get("/config", function(req, res) {
+  res.status(200).send(slic3rDefault);
 });
 
-app.get("/public/profiles", function (req, res) {
+app.get("/public/profiles", function(req, res) {
   fs.readFile("./public/availableProfiles.json", (err, data) => {
     res.status(200).send(data);
   });
