@@ -6,6 +6,7 @@ const port = 3000;
 
 const nodeSlicer = require("./slicers/slic3r/slic3r");
 const prusaSlicer = require("./slicers/prusaslicer/prusaslicer");
+const curaEngine = require("./slicers/curaengine/curaengine");
 const converter = require("./utils/converter");
 const database = require("./utils/database");
 
@@ -59,6 +60,8 @@ app.post("/upload/:slicerType", function (req, res) {
         slicerToUse = nodeSlicer;
       } else if (req.params.slicerType === "prusaslicer") {
         slicerToUse = prusaSlicer;
+      } else if (req.params.slicerType === "curaengine") {
+        slicerToUse = curaEngine;
       } else {
         return res.status(500).send("Wrong parameter");
       }
