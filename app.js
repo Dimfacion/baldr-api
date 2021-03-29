@@ -27,6 +27,14 @@ app.get("/", function (req, res) {
   res.send("Baldr is awake and shining !");
 });
 
+app.get("/password", function (req, res) {
+  if(req.query.password === 'persephone') {
+    res.send("cerberusisagoodboi");
+  } else {
+    res.send("");
+  }
+});
+
 app.post("/upload/:slicerType", function (req, res) {
   for (var i = 0; i < Object.keys(req.files).length; i++) {
     var nameObject = Object.keys(req.files)[i];
